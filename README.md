@@ -9,3 +9,5 @@ The monitor uses the following components:
 See accompanying Fritzing diagram for circuitry.
 Still to do:
   - Make upgrade module *really* work.
+  
+[Circuitry for this project](./Doorbell_bb.jpg)

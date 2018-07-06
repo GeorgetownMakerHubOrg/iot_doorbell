@@ -14,4 +14,4 @@ Still to do:
 
 [3D Printed a very nice case from Thingiverse](https://www.thingiverse.com/thing:2847539)
 
-It looks like this: (./Doorbell.jpg)
+[It looks like this] (./Doorbell.jpeg)

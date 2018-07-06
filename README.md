@@ -12,6 +12,6 @@ Still to do:
   
 [Circuitry for this project](./Doorbell_bb.jpg)
 
-[3D Printed a very nice case from:](https://www.thingiverse.com/thing:2847539)
+[3D Printed a very nice case from Thingiverse](https://www.thingiverse.com/thing:2847539)
 
 It looks like this: (./Doorbell.jpg)

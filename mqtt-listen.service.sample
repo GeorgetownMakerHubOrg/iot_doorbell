@@ -7,7 +7,7 @@ Requires=runlevel5.target
 Type=simple
 Restart=always
 RestartSec=10
-User=root
+User=volumio
 ExecStart=/usr/bin/python3 /home/volumio/db/mqtt-listen.py
 
 [Install]

@@ -1,0 +1,14 @@
+# GNU General Public License <https://www.gnu.org/licenses>
+
+# Adafruit parameters
+X_AIO_KEY = "aio_XYZZYasdflkjasdasdfasdff"                            # Maker key
+USER = "gumaker"                                                      # Maker user
+
+# MQTT
+MQTT_SERVER = "io.adafruit.com"
+MQTT_USER = "gumaker"
+MQTT_PASSWD = X_AIO_KEY
+MQTT_SUB_TOPIC = "gumaker/feeds/makerhubevents.backdoorbell"
+
+# Enable Debugging Statements
+DEBUG = True

@@ -1,0 +1,8 @@
+#!/bin/bash -x
+status=`volumio status | jq .status | sed -e 's/^"//' -e 's/"$//'`
+volume=`volumio status |jq .volume`
+volumio pause 
+volumio volume 90
+play /home/volumio/db/ding.mp3
+volumio volume ${volume}
+volumio ${status}

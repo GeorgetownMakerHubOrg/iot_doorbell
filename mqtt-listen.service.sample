@@ -1,12 +1,14 @@
 [Unit]
 Description=subscribe to MQTT services
 After=network.target
-After=sockets.target
+Requires=runlevel5.target
 
 [Service]
-Type=oneshot
+Type=simple
+Restart=always
+RestartSec=10
 User=root
 ExecStart=/usr/bin/python3 /home/volumio/db/mqtt-listen.py
 
 [Install]
-WantedBy=default.target
+WantedBy=multi-user.target

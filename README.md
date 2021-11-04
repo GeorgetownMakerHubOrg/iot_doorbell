@@ -23,11 +23,12 @@ The following instructions will help anyone with basic familiarity with Raspberr
 
 1. Create a Raspian LITE distribution (no desktop) following [these instructions](https://www.raspberrypi.com/documentation/computers/getting-started.html).
 
-2. Using **<code>sudo raspi-config</code>, enable <code>sshd()</code> and configure wpa_supplicant to find the hidden private network called PILGRIMAGE_25.   Access the ASUS router at 192.168.1.1 and add the MAC address of the RPi.
+2. Using `sudo raspi-config`, enable `sshd()` and configure wpa_supplicant to find the hidden private network called PILGRIMAGE_25.   Access the ASUS router at 192.168.1.1 and add the MAC address of the RPi.
 	
 The `/etc/wpa_supplicant/wpa_supplicant` file should include the following, as a minimum:
 
-    <code>ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+    ```
+    ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
     update_config=1
     country=US
 
@@ -35,8 +36,8 @@ The `/etc/wpa_supplicant/wpa_supplicant` file should include the following, as a
         scan_ssid=1
         ssid="PILGRIMAGE_25"
         key_mgmt=NONE
-    }</code>
-
+    }
+    ```
     Be sure to change pi’s password to the MakerHub supplied password.
 
 3. Fetch packages for compiling and install librespot
@@ -46,15 +47,17 @@ The `/etc/wpa_supplicant/wpa_supplicant` file should include the following, as a
 
     Install `rust` & C compilers to install `librespot` following instructions on this [page](https://github.com/librespot-org/librespot/blob/master/COMPILING.md).  Compile using the pulseaudio-backend and not the default ALSA: 
 
-	<code>pi@raspberrypi:~ $ sudo apt-get install libpulse-dev
-     	pi@raspberrypi:~ $ git clone https://github.com/librespot-org/librespot.git
-	pi@raspberrypi:~ $ cargo build --no-default-features --features "pulseaudio-backend"</code>
-
+    ```
+    pi@raspberrypi:~ $ sudo apt-get install libpulse-dev
+    pi@raspberrypi:~ $ git clone https://github.com/librespot-org/librespot.git
+    pi@raspberrypi:~ $ cargo build --no-default-features --features "pulseaudio-backend"</code>
+    ```
 4. Install pulseaudio & sox for audio playback via:
 
-	<code>pi@raspberrypi:~/iot_doorbell $ sudo apt-get install pulseaudio
-	pi@raspberrypi:~/iot_doorbell $ sudo apt-get install sox libsox-fmt-mp3</code>
-
+    ```
+    pi@raspberrypi:home/pi/iot_doorbell $ sudo apt-get install pulseaudio
+    pi@raspberrypi:~/iot_doorbell $ sudo apt-get install sox libsox-fmt-mp3</code>
+    ```
 5. Install pip3 and paho-mqtt via:
 
     ```

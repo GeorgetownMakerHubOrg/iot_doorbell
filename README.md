@@ -16,7 +16,7 @@ The following instructions will help anyone with basic familiarity with Raspberr
 3. Install packages to compile and install librespot
 4. Install PulseAudio and Sox
 5. Install packages to install MQTT
-6. Clone the Doorbell Git repository
+6. Clone the Doorbell Git repository and configure the default settings in config.py
 7. Enable Librespot, PulseAudio, MQTT-listen to load on boot up
 
 ### Installation

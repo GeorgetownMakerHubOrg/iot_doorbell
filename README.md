@@ -66,7 +66,7 @@ Install `rust` & C compilers to install `librespot` following instructions on th
     ```
     pi@raspberrypi:~/iot_doorbell $ git clone https://github.com/GeorgetownMakerHubOrg/iot_doorbell.git
     ```
-
+You will also need to copy the config.py.sample to config.py and replace the dummy values for USER, X_AIO_KEY, MQTT_PASSWORD, and MQTT_SUB_TOPIC with real values.
 
 7. Since librespot and mqtt-listen will run as a user process, configure both librespot and mqtt-listen to start as a ‘pi’ process on bootup:   
     * Using the `raspi-config` tool, select “`1 System Options-> S5 Boot / Auto Login->B2 Console Autologin Text console` to have the RPi automatically log in as ‘pi’ user on bootup.

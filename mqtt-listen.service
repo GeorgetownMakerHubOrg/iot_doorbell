@@ -1,0 +1,19 @@
+[Unit]
+Description=Doorbell Answering Service
+
+# This file is based upon the pulseaudio.service file in this directory.  It requires pulseaudio.service 
+# to be active before starting the daemon.
+#
+# A user installing librespot and doing `systemctl --user start mqtt-listen`
+#
+Requires=pulseaudio.service
+ConditionUser=!root
+
+[Service]
+# Note that notify will only work if --daemonize=no
+Type=simple
+ExecStart=/usr/bin/python3 /home/pi/iot_doorbell/mqtt-listen.py
+Restart=on-failure
+
+[Install]
+WantedBy=default.target

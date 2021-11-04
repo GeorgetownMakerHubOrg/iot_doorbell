@@ -1,0 +1,19 @@
+[Unit]
+Description=LibreSpot Service
+
+# This file is based upon the pulseaudio.service file in this directory.  It requires pulseaudio.service 
+# to be active before starting the daemon.
+#
+# A user installing librespot and doing `systemctl --user start librespot`
+#
+Requires=pulseaudio.service
+ConditionUser=!root
+
+[Service]
+# Note that notify will only work if --daemonize=no
+Type=simple
+ExecStart=/home/pi/librespot/target/debug/librespot --name MakerHub --backend pulseaudio
+Restart=on-failure
+
+[Install]
+WantedBy=default.target

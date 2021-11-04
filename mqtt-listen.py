@@ -7,7 +7,7 @@ broker = config.MQTT_SERVER
 port = 1883
 topic = config.MQTT_SUB_TOPIC
 # generate client ID with random suffix
-client_id = "doorbell-mqtt-100"
+client_id = "doorbell-mqtt-test-"+str(random.getrandbits(16))
 username = config.MQTT_USER
 password = config.MQTT_PASSWD
 
@@ -32,11 +32,10 @@ def subscribe(client: mqtt_client):
         global data
         print('Payload is:', json.loads(msg.payload.decode()))
         data['count'] += 1
-        os.system("/home/volumio/db/knock")
-        print("Received `{msg.payload.decode()}` from `{msg.topic}` topic")
+        os.system("/home/pi/iot_doorbell/knock")
     client.subscribe(topic)
     client.on_message = on_message
-
+print("client id is: ", client_id)
 client = connect_mqtt()
 subscribe(client)
 client.loop_forever()

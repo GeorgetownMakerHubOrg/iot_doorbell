@@ -23,12 +23,11 @@ The following instructions will help anyone with basic familiarity with Raspberr
 
 1. Create a Raspian LITE distribution (no desktop) following [these instructions](https://www.raspberrypi.com/documentation/computers/getting-started.html).
 
-2. Using **<code>sudo raspi-config</code>, </strong>enable <code>sshd()</code> and configure wpa_supplicant to find the hidden private network called PILGRIMAGE_25.   Access the ASUS router at 192.168.1.1 and add the MAC address of the RPi.
+2. Using **<code>sudo raspi-config</code>, enable <code>sshd()</code> and configure wpa_supplicant to find the hidden private network called PILGRIMAGE_25.   Access the ASUS router at 192.168.1.1 and add the MAC address of the RPi.
 	
 The `/etc/wpa_supplicant/wpa_supplicant` file should include the following, as a minimum:
 
-```
-    ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+    <code>ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
     update_config=1
     country=US
 
@@ -36,8 +35,8 @@ The `/etc/wpa_supplicant/wpa_supplicant` file should include the following, as a
         scan_ssid=1
         ssid="PILGRIMAGE_25"
         key_mgmt=NONE
-    }
-```
+    }</code>
+
     Be sure to change pi’s password to the MakerHub supplied password.
 
 3. Fetch packages for compiling and install librespot
@@ -53,7 +52,7 @@ The `/etc/wpa_supplicant/wpa_supplicant` file should include the following, as a
 
 4. Install pulseaudio & sox for audio playback via:
 
-	<code>pi@raspberrypi:~/iot_doorbell $ <strong>sudo apt-get install pulseaudio
+	<code>pi@raspberrypi:~/iot_doorbell $ sudo apt-get install pulseaudio
 	pi@raspberrypi:~/iot_doorbell $ sudo apt-get install sox libsox-fmt-mp3</code>
 
 5. Install pip3 and paho-mqtt via:

@@ -23,11 +23,10 @@ The following instructions will help anyone with basic familiarity with Raspberr
 
 1. Create a Raspian LITE distribution (no desktop) following [these instructions](https://www.raspberrypi.com/documentation/computers/getting-started.html).
 
-2. Using `sudo raspi-config`, enable `sshd()` and configure wpa_supplicant to find the hidden private network called PILGRIMAGE_25.   Access the ASUS router at 192.168.1.1 and add the MAC address of the RPi.
+2. Using `sudo raspi-config`, enable `sshd()` and configure wpa_supplicant to find the hidden private network called PILGRIMAGE_25.   Access the ASUS router at 192.168.1.1 and add the MAC address of the RPi.  Be sure to change to default `pi` password from `raspberry` to the MakerHub assigned password.
 	
 The `/etc/wpa_supplicant/wpa_supplicant` file should include the following, as a minimum:
-
-    ```
+    
     ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
     update_config=1
     country=US
@@ -37,21 +36,18 @@ The `/etc/wpa_supplicant/wpa_supplicant` file should include the following, as a
         ssid="PILGRIMAGE_25"
         key_mgmt=NONE
     }
-    ```
-    Be sure to change pi’s password to the MakerHub supplied password.
 
 3. Fetch packages for compiling and install librespot
     Install `git` via:
 
-<code>pi@raspberrypi:~/iot_doorbell $ sudo apt install git</code>
+    `pi@raspberrypi:~/iot_doorbell $ sudo apt install git`
 
-    Install `rust` & C compilers to install `librespot` following instructions on this [page](https://github.com/librespot-org/librespot/blob/master/COMPILING.md).  Compile using the pulseaudio-backend and not the default ALSA: 
+Install `rust` & C compilers to install `librespot` following instructions on this [page](https://github.com/librespot-org/librespot/blob/master/COMPILING.md).  Compile using the pulseaudio-backend and not the default ALSA: 
 
-    ```
     pi@raspberrypi:~ $ sudo apt-get install libpulse-dev
     pi@raspberrypi:~ $ git clone https://github.com/librespot-org/librespot.git
     pi@raspberrypi:~ $ cargo build --no-default-features --features "pulseaudio-backend"</code>
-    ```
+    
 4. Install pulseaudio & sox for audio playback via:
 
     ```
@@ -76,13 +72,13 @@ The `/etc/wpa_supplicant/wpa_supplicant` file should include the following, as a
     * Using the `raspi-config` tool, select “`1 System Options-> S5 Boot / Auto Login->B2 Console Autologin Text console` to have the RPi automatically log in as ‘pi’ user on bootup.
     * Copy the librespot.service file from the iot_doorbell distribution to the user system control directory.  Enable this service and start this service:
 
-    ```
-    pi@raspberrypi:~/iot_doorbell $ sudo cp librespot.service /lib/systemd/user
-    pi@raspberrypi:~/iot_doorbell $ sudo cp mqtt-listen.service /lib/systemd/user
-
-    pi@raspberrypi:~/iot_doorbell $ systemctl --user enable librespot.service
-    pi@raspberrypi:~/iot_doorbell $ systemctl --user enable mqtt-listen.service
-    ```
+        ```
+        pi@raspberrypi:~/iot_doorbell $ sudo cp librespot.service /lib/systemd/user
+        pi@raspberrypi:~/iot_doorbell $ sudo cp mqtt-listen.service /lib/systemd/user
+    
+        pi@raspberrypi:~/iot_doorbell $ systemctl --user enable librespot.service
+        pi@raspberrypi:~/iot_doorbell $ systemctl --user enable mqtt-listen.service
+        ```
 
 ### Actual Doorbell
 

@@ -11,6 +11,9 @@ MQTT_USER = USER
 MQTT_PASSWD = X_AIO_KEY
 MQTT_TOPIC = "gumakerhub/feeds/makerhubevents.backdoorbell"
 
+username = MQTT_USER
+password = MQTT_PASSWD
+
 def on_connect(client, userdata, flags, rc):
     print(f"Connected with result code {rc}")
     # reconnect after losing the connection with the broker, it will continue to subscribe to the raspberry/topic topic

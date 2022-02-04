@@ -5,5 +5,5 @@ librespot=$(pacmd list-sink-inputs | tr '\n' '\r' | perl -pe 's/ *index: ([0-9]+
 
 volume=75
 pactl set-sink-input-volume $librespot -${volume}%
-play /home/pi/iot_doorbell/CarelessWhisper.mp3
+play /home/pi/iot_doorbell/ding.mp3
 pactl set-sink-input-volume $librespot +${volume}%
